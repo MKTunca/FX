@@ -1,0 +1,23 @@
+// Bootstrap Require
+// @import "../../node_modules/bootstrap/scss/functions";
+// @import "../../node_modules/bootstrap/scss/variables";
+// @import "../../node_modules/bootstrap/scss/mixins";
+// // Bootstrap Optional
+// @import "../../node_modules/bootstrap/scss/reboot";
+// @import "../../node_modules/bootstrap/scss/type";
+// @import "../../node_modules/bootstrap/scss/images";
+// @import "../../node_modules/bootstrap/scss/media";
+// @import "../../node_modules/bootstrap/scss/code";
+// @import "../../node_modules/bootstrap/scss/utilities";
+// @import "../../node_modules/bootstrap/scss/grid";
+// @import "../../node_modules/bootstrap/scss/grid";
+// @import "../../node_modules/bootstrap/scss/grid";
+@import "~bootstrap/scss/bootstrap";
+
+// $grid-columns: 12 !default;
+// $grid-gutter-width: 30px !default;
+// @include media-breakpoint-only(xs) {}
+// @include media-breakpoint-only(sm) {  body{background-color: red;}}
+// @include media-breakpoint-only(md) {}
+// @include media-breakpoint-only(lg) {}
+// @include media-breakpoint-only(xl) {}

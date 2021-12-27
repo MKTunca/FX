@@ -1,0 +1,87 @@
+.modal {
+    %position {
+      @extend %maximize;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 1;
+    }
+  
+    .overlay {
+      @include transition();
+      @extend %position;
+      background: map_get($colors, black);
+      opacity: 0.95;
+      z-index: 1;
+    }
+  
+    .close {
+      position: fixed;
+      right: size(35px);
+      top: size(24px);
+      font-size: size(30px);
+      line-height: size(23px);
+      color: map_get($colors, white);
+      cursor: pointer;
+      z-index: 2;
+    }
+  
+    .content {
+      @extend %position;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      padding: size(50px);
+      overflow: auto;
+      color: map_get($colors, white);
+  
+      .information {
+        padding-bottom: size(20px);
+        font-weight: 900;
+        font-size: size(27px);
+      }
+  
+      .actions {
+        display: flex;
+        flex-direction: row;
+  
+        button {
+          @include transition(0.3s);
+          @include border-radius(size(4px));
+          // border: 1px solid map_get($colors, white);
+          margin: size(5px);
+          color: map_get($colors, white);
+          text-transform: none;
+  
+          &:hover {
+            @include transition(0.6s);
+            background: transparentize(map_get($colors, white), 0.5);
+          }
+  
+          &.primary {
+            background: transparentize(map_get($colors, white), 0.15);
+            color: map_get($colors, black);
+            font-weight: 100;
+            font-size: size(20px);
+            padding: 0 size(10px);
+            border: none;
+  
+            &:hover {
+              // background: darken(map_get($colors, white), 10%);
+              background: map_get($colors, white);
+            }
+          }
+        }
+      }
+  
+      .sub-note {
+        padding: size(10px);
+        font-size: size(12px);
+      }
+    }
+  }

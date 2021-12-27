@@ -1,0 +1,36 @@
+a, a:not([href]):not([tabindex]) {
+    text-decoration: none;
+    cursor: pointer;
+    line-height: size(16px);
+    font-size: size(14px);
+    font-weight: 500;
+    font-family: $font-open-sans;
+  
+    &.primary {
+      color: map_get($colors, red);
+    }
+  
+    &.secondary {
+      color: map_get($colors, black);
+    }
+  
+    &.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  
+    &:hover {
+      opacity: 1;
+    }
+  }
+  
+  .icon-right {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+  
+    &::before {
+  
+    }
+  }

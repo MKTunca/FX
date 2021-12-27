@@ -1,0 +1,3 @@
+@function size($px) {
+  @return $px / $font-default-size * $font-current-size;
+}

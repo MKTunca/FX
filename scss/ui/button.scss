@@ -1,0 +1,31 @@
+button {
+    border: none;
+    padding: 0 size(30px);
+    font-size: size(14px);
+    border-radius: size(30px);
+    color: rgba(21, 30, 59, 0.4);
+    cursor: pointer;
+    background-color: transparent;
+  
+    &:focus {
+      outline: none;
+    }
+  
+    &.active, &.passive {
+      &.after {
+        padding-right: size(54px);
+  
+        &::before {
+          position: absolute;
+          right: 17px;
+          line-height: 50px;
+          font-size: 18px;
+          padding-left: 17px;
+        }
+      }
+    }
+  }
+  
+  button:disabled {
+    opacity: 0.4;
+  }

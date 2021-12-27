@@ -1,0 +1,39 @@
+$images-path: "/assets/images";
+$background-image: "bg.png"; //31, 11, 33, 56
+$video-path: "/assets/video";
+$background-video: "logo.mp4"; //31, 11, 33, 56
+//######################## fonts
+$font-open-sans: 'Open Sans';
+$font-default: $font-open-sans;
+$font-default-size: 16px;
+$font-current-size: 16px;
+
+$red_hex: #CE172C;
+$blue_hex: #135EB9;
+$grey_hex: #4F5858;
+$yellow_hex: #ffae5f;
+$light_grey_hex: #929e9e;
+$light_blue_hex: #5a7a98;
+$white_hex: #ffffff;
+
+
+$page_title_size: 20px;
+$colors: (
+  /*----------------------------*/
+  logo-color:#c69a4c,
+  logo-color1:#003471,
+  navbar-color:rgb(17 19 20 / 50%),
+  background-color:rgba(18, 26, 33, 0.8),
+  footer-color:rgb(137 115 67 / 80%),
+  title-area:rgb(137 115 67 / 80%),
+  scrollbar-color:#E0BC6E,
+  scrollbar-hover:#7A673C,
+);
+
+%maximize {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+}

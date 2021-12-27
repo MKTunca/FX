@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <h1 class="Titl text-center"><img src="http://aifasoft.com/images/681616AIFASOFT-LOGO5.png" height="50" width="100" alt=""> BİSMİL KUYUMCULAR ODASI</h1>
+  <div class="home-container col-50">
+  <div class="piece-div col-sm-6 col-md-12 col-lg-7">
+      <div class="grid-container">
+        <div class="title">
+          <div class="title-fixed col-10">
+            <div class="categoryName col-sm-6 col-md-6 col-lg-6" translate>
+             <h4>FX</h4> 
+            </div>
+            <div class="bid col-sm-12 col-md-12 col-lg-3" translate>
+             <h4>Alış</h4>
+            </div>
+            <div class="ask col-sm-12 col-md-12 col-lg-3">
+            <h4>Satış</h4> 
+            </div>
+            <div class="ask col-sm-12 col-md-12 col-lg-5">
+              <h4>Saat</h4> 
+              </div>
+          </div>
+        </div>
+  
+        <div class="overflow-box" id="metalContainer">
+          <div class="grid-box" *ngFor="let data of goldList ; let i=index; trackBy : trackByPrice">
+            <div class="grid-card" (click)="toggle(data)" [ngClass]="{'grid-card-up': data.askPercentChange >0,
+                   'grid-card-down': data.askPercentChange <0}">
+                          <span class="grid-text col-sm-5 col-md-5 col-lg-2" >
+              <h4> {{data.Code}}</h4> 
+              </span>
+              <div class="price-tag col-sm-9 col-md-9 col-lg-7">
+                              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange>0"
+                                    style="color: #3a9d37;padding: 0;text-align:left;">
+                  <i class="fa fa-angle-up"></i>
+                </span>
+                <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange<0"
+                      style="color: #f25961;padding: 0;text-align:left;">
+                  <i class="fa fa-angle-down"></i>
+                </span>
+                <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange===0 || !data.askPercentChange"
+                      style="color: orange;padding: 0;text-align:left;">
+                  <i class="fa fa-minus"></i>
+                </span>
+                <span class="price col-sm-3 col-md-3 col-lg-4">
+                <h4>  {{data.Bid | number:'1.4-4'}}</h4> 
+                </span>
+                <span class="price col-sm-3 col-md-3 col-lg-4">
+                 <h4> {{data.Ask | number:'1.4-4'}}</h4>     
+                </span>
+                <span *ngIf="data.askPercentChange>0" class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: #3a9d37">
+              %{{data.askPercentChange}}
+            </span>
+                <span *ngIf="data.askPercentChange<0" class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: #f25961">
+              %{{data.askPercentChange}}
+            </span>
+                <span *ngIf="data.askPercentChange==0 || !data.askPercentChange"
+                      class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: orange">
+              %{{data.askPercentChange}}.00
+            </span>
+            <span  class="grid-all col-sm-3 col-md-3 col-lg-5">{{data.Time | date :'shortTime'}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="piece-div col-sm-24 col-md-24 col-lg-5">
+      <div class="grid-container">
+        <div class="title">
+          <div class="title-fixed col-10">
+            <div class="categoryName col-sm-12 col-md-12 col-lg-5"  translate>
+            </div>
+          </div>
+        </div>
+        <div  class="col-sm-5 col-md-5 col-lg-12"><app-clock></app-clock>
+        </div>
+      </div><div>
+        <div id="goldContainer">
+          <div class="grid-box" *ngFor="let socketData of kriptoList; let i=index; trackBy : trackByPrice">
+            <div class="grid-card" (click)="toggle(socketData)" [ngClass]="{'grid-card-up': socketData.askPercentChange >0,
+                   'grid-card-down': socketData.askPercentChange <0}">
+                          <span class="grid-text col-sm-3 col-md-3 col-lg-3">
+                {{socketData.Code}}
+              </span>
+              <div class="price-tag col-sm-9 col-md-9 col-lg-9">
+                              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="socketData.askPercentChange>0"
+                                    style="color: #3a9d37;padding: 0;text-align: center">
+                  <i class="fa fa-angle-up"></i>
+                </span>
+                <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="socketData.askPercentChange<0"
+                      style="color: #f25961;padding: 0;text-align: center">
+                  <i class="fa fa-angle-down"></i>
+                </span>
+                <span class="col-sm-3 col-md-3 col-lg-3"
+                      *ngIf="socketData.askPercentChange===0 || !socketData.askPercentChange"
+                      style="color: orange;padding: 0;text-align: center">
+                  <i class="fa fa-minus"></i>
+                </span>
+                <span class="price col-sm-3 col-md-3 col-lg-3">
+              {{socketData.Bid | number:'1.2-2'}}
+         </span>
+                <span class="price col-sm-3 col-md-3 col-lg-3">
+           {{socketData.Ask | number:'1.2-2'}}
+                </span>
+                <span *ngIf="socketData.askPercentChange>0" class="grid-all col-sm-3 col-md-3 col-lg-3"
+                      style="color: #3a9d37">
+              %{{socketData.askPercentChange}}
+            </span>
+                <span *ngIf="socketData.askPercentChange<0" class="grid-all col-sm-3 col-md-3 col-lg-3"
+                      style="color: #f25961">
+              %{{socketData.askPercentChange}}
+            </span>
+                <span *ngIf="socketData.askPercentChange==0 || !socketData.askPercentChange"
+                      class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: orange">
+              %{{socketData.askPercentChange}}.00
+            </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>   
+    <div class="piece-div col-sm-3 col-md-3 col-lg-4">
+      <div class="grid-container">
+        <div class="title">
+          <div class="title-fixed col-10">
+            <div class="categoryName col-sm-2 col-md-2 col-lg-2" translate>
+              Reklamlar
+            </div>
+          </div>
+        </div>
+        <div style="
+        overflow: scroll; margin-left: -15px; height: 17rem; " class="col-sm-2 col-md-2 col-lg-12 text-center">
+        Reklamlarınız için +90505 355 9090</div>
+      </div>
+    </div>
+  <div class="piece-div col-sm-6 col-md-6 col-lg-3" id="logo">
+    <img src="http://aifasoft.com/images/681616AIFASOFT-LOGO5.png" alt="" style="margin-left: 30%;">
+  </div>
+    <div class="piece-div col-sm-5 col-md-5 col-lg-5">
+      <div class="grid-container">
+        <div class="title">
+          <div class="title-fixed col-10">
+            <div class="categoryName col-sm-2 col-md-2 col-lg-2" translate>
+              Haberler
+            </div>
+          </div>
+        </div>
+        <div style="
+        overflow: scroll; margin-left: -15px; height: 17rem; " class="col-sm-2 col-md-2 col-lg-12"><app-haber></app-haber></div>
+      </div>
+    </div>
+  <div class=" col-lg-12">
+    <div class="footer" style="position: relative; background-color: black;"><app-footer></app-footer></div>
+   </div>
+  </div> 
+</body>
+</html>
